@@ -15,6 +15,11 @@ class MFRC522 {
   constructor(spi, cs) {
     this.spi = spi;
     this.cs = cs;
+
+    // Set the chip select pin to be high by default, meaning
+    // the chip is disabled by default until we select it
+    pinMode(this.cs, OUTPUT);
+    digitalWrite(this.cs, HIGH);
   }
 
   /**
@@ -73,7 +78,7 @@ class MFRC522 {
    * Probably can add a callback to call here
    */
   alert() {
-    console.log("ALERT");
+    // console.log("ALERT");
   }
 
   /**
